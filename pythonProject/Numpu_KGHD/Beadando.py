@@ -30,5 +30,4 @@ df_tlt = df_tlt.rename(columns={'Adj Close': 'Adj Close_tlt'})
 df_vde = df_vde.rename(columns={'Adj Close': 'Adj Close_vde'})
 df_xlv = df_xlv.rename(columns={'Adj Close': 'Adj Close_xlv'})
 df_xme = df_xme.rename(columns={'Adj Close': 'Adj Close_xme'})
- print(1)
- pass
+pass
