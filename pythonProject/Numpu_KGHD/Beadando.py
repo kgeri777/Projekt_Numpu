@@ -31,4 +31,10 @@ df_vde = df_vde.rename(columns={'Adj Close': 'Adj Close_vde'})
 df_xlv = df_xlv.rename(columns={'Adj Close': 'Adj Close_xlv'})
 df_xme = df_xme.rename(columns={'Adj Close': 'Adj Close_xme'})
 
+filenames = [df_dba, df_tlt, df_vde, df_xlv, df_xme]
+
+df_merge = reduce(lambda left, right: pd.merge(left, right, on=['Date'], how='inner'), filenames)
+df_merge.index = pd.to_datetime(df_merge.index)
+df_minden = df_merge.join(df_risk_free_rate, how='inner')
+df_minden.iloc[:, -1] = df_minden.iloc[:, -1] /100
 pass
